@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --ScissorsGradientStart: hsl(39, 89%, 49%);
+  --ScissorsGradientEnd: hsl(40, 84%, 53%);
+  --PaperGradientStart: hsl(230, 89%, 62%);
+  --PaperGradientEnd: hsl(230, 89%, 65%);
+  --RockGradientStart: hsl(349, 71%, 52%);
+  --RockGradientEnd: hsl(349, 70%, 56%);
+  --LizardGradientStart: hsl(261, 73%, 60%);
+  --LizardGradientEnd: hsl(261, 72%, 63%);
+  --CyanStart: hsl(189, 59%, 53%);
+  --CyanEnd: hsl(189, 58%, 57%);
+  --DarkText: hsl(229, 25%, 31%);
+  --ScoreText: hsl(229, 64%, 46%);
+  --HeaderOutline: hsl(217, 16%, 45%);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  background: radial-gradient(
+      at center top,
+      hsl(214, 47%, 23%) 30%,
+      hsl(237, 49%, 15%)
+    )
+    no-repeat;
+}
+div.container__main {
+  display: grid;
+  grid-template-areas:
+    "paper scissor "
+    "rock rock ";
+  background: url(/images/bg-triangle.svg) no-repeat;
+  margin: 10rem auto;
+  height: 278px;
+  width: 313px;
+  background-size: cover;
+}
+div.icon__container {
+  display: grid;
+  place-content: center;
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+  margin: auto;
+  box-shadow: 0px -5px rgba(0, 0, 0, 0.25) inset;
+}
+div.icon {
+  box-shadow: 0px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+div.icon_container:hover {
+  cursor: pointer;
+}
+div.icon__container.paper__container {
+  grid-area: paper;
+  background: radial-gradient(
+    at center,
+    var(--PaperGradientStart),
+    var(--PaperGradientEnd)
+  );
+  transform: translate(-40px, -40px);
+}
+div.icon__container.rock__container {
+  grid-area: rock;
+  background: radial-gradient(
+    at center,
+    var(--RockGradientStart),
+    var(--RockGradientEnd)
+  );
+  transform: translate(0px, 40px);
+}
+div.icon__container.scissor__container {
+  grid-area: scissor;
+  background: radial-gradient(
+    at center,
+    var(--ScissorsGradientStart),
+    var(--ScissorsGradientEnd)
+  );
+  transform: translate(40px, -40px);
+}
+
+
+@media screen and (min-width: 428px) {
+    div.icon__container {
+        scale: 1.2;
+    }
+}
